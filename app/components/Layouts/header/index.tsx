@@ -1,4 +1,4 @@
-import { MenuIcon } from "@/components/icons";
+import { AddIcon, HomeIcon, MenuIcon } from "@/components/icons";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -12,12 +12,13 @@ import { Link } from "react-router";
 interface HeaderNavigationItem {
   name: string;
   href: string;
+  icon: React.ReactNode;
 }
 
 export function Header() {
   const navigationList: HeaderNavigationItem[] = [
-    { name: "Home", href: "/" },
-    { name: "曲を追加", href: "/post" },
+    { name: "Home", href: "/", icon: <HomeIcon color="gray" /> },
+    { name: "曲を追加", href: "/post", icon: <AddIcon color="gray" /> },
   ];
 
   return (
@@ -32,7 +33,12 @@ export function Header() {
           <DropdownMenuContent>
             {navigationList.map((nav, index) => (
               <DropdownMenuItem key={`header-nav-${index}`}>
-                <Link to={nav.href}>{nav.name}</Link>
+                <Link to={nav.href} className="flex items-center gap-2">
+                  <span className="w-[24px] h-[24px] flex items-center justify-center rounded-full bg-[#333]">
+                    {nav.icon}
+                  </span>
+                  {nav.name}
+                </Link>
               </DropdownMenuItem>
             ))}
           </DropdownMenuContent>
