@@ -5,7 +5,7 @@ type MainLayoutProps = {
   children: React.ReactNode;
 };
 
-const bgColorVariants = cva("min-h-screen h-full", {
+const bgColorVariants = cva("h-full", {
   variants: {
     bgColor: {
       white: "bg-white",
