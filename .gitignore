@@ -7,3 +7,8 @@
 /build/
 
 .vercel
+
+# Firebase 関連
+firebase.json
+.firebaserc
+firebase-debug.log
